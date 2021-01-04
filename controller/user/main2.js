@@ -32,7 +32,8 @@ module.exports = {
       });
     }
 
-    console.log(result);
+    console.log("result: ", result);
+    console.log("된거임?");
 
     try {
       if (!result.length) {

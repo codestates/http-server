@@ -41,6 +41,8 @@ module.exports = {
         res.status(404).send('유저를 찾을 수 없습니다.');
       } else {
         req.session.userId = findUser.id;
+	console.log("req.session.userId: ", req.session.userId);
+	console.log("MyHand");
 
         res.status(200).json({ id: findUser.id, email: findUser.email, name: findUser.name, mobile: findUser.mobile });
       }

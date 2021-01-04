@@ -34,7 +34,8 @@ module.exports = {
       });
     }
 
-    console.log(result);
+    console.log("result: ", result);
+    console.log("GetMain...ing");
 
     try {
       if (!result.length) {
