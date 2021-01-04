@@ -6,7 +6,6 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: ["https://get-todo.com"],
     methods: ["GET", "POST", "PATCH", "OPTIONS"],
     credentials: true,
   })
