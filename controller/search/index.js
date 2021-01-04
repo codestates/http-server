@@ -1,4 +1,5 @@
 module.exports = {
-    searchEmail: require('./searchEmail'),
-    searchPassword: require('./searchPassword')
-}
+  searchEmail: require("./searchEmail"),
+  searchPassword: require("./searchPassword"),
+  overlapEmail: require("./overlapEmail"),
+};
