@@ -17,14 +17,11 @@ app.use(
     secret: "secretkey",
     resave: false,
     saveUninitialized: true,
-    httpOnly: true,
-    secure: true,
     cookie: {
       path: "/",
-      _expires: null,
-      originalMaxAge: null,
       httpOnly: true,
-      secure: true,
+      secure: false,
+      maxAge: null,
       sameSite: "none",
     },
   })
