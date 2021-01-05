@@ -5,6 +5,7 @@ const cors = require("cors");
 
 router.post("/postMain", indexController.main.post);
 router.patch("/editMain", indexController.main.patch);
+//main2
 router.post("/main2", indexController.main2.post);
 router.get("/getMain", indexController.main.get);
 router.post("/signup", indexController.signup.post);
