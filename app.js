@@ -18,11 +18,9 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: {
-      path: "/", 
-      httpOnly: true, 
-      secure: false, 
-      maxAge: null, 
+      httpOnly: true,
       sameSite: "none",
+      secure: true,
     },
   })
 );
