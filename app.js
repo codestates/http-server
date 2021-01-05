@@ -13,15 +13,15 @@ app.use(
 );
 
 app.use(
-  session({
+  session({ 
     secret: "secretkey",
     resave: false,
     saveUninitialized: true,
     cookie: {
       httpOnly: true,
-      sameSite: "none",
+      sameSite: "none", 
       secure: true,
-    },
+    }, 
   })
 );
 
