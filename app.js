@@ -25,6 +25,7 @@ app.use(
       originalMaxAge: null,
       httpOnly: true,
       secure: true,
+      sameSite: "none",
     },
   })
 );
