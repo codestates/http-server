@@ -18,10 +18,10 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: {
-      path: "/",
-      httpOnly: true,
-      secure: false,
-      maxAge: null,
+      path: "/", 
+      httpOnly: true, 
+      secure: false, 
+      maxAge: null, 
       sameSite: "none",
     },
   })
