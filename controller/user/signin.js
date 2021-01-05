@@ -1,8 +1,8 @@
-const { User } = require('../../models');
-const axios = require('axios');
+const { User } = require("../../models");
+const axios = require("axios");
 // const jwt = require('jsonwebtoken');
 
-require('dotenv').config();
+require("dotenv").config();
 
 const clientId = process.env.CLIENT_ID;
 const clientSecret = process.env.CLIENT_SECRET;
@@ -11,24 +11,24 @@ const clientSecret = process.env.CLIENT_SECRET;
 // 소셜 로그인 요청 기능
 let getToken = async function (code) {
   let res = await axios({
-    method: 'POST',
+    method: "POST",
     url: `https://github.com/login/oauth/access_token?client_id=${clientId}&client_secret=${clientSecret}&code=${code}`,
-    headers: { accept: 'application/json' }
+    headers: { accept: "application/json" },
   });
-  console.log('요기는 토큰받는곳', res.data.access_token);
+  console.log("요기는 토큰받는곳", res.data.access_token);
   const access_token = res.data.access_token;
   return access_token;
 };
 
 let getUserInfo = async function (token) {
   let data = await axios({
-    method: 'GET',
-    url: 'https://api.github.com/user',
-    headers: { Authorization: 'token ' + token }
+    method: "GET",
+    url: "https://api.github.com/user",
+    headers: { Authorization: "token " + token },
   });
 
   return data.data;
-}
+};
 
 // 로그인
 module.exports = {
@@ -37,14 +37,17 @@ module.exports = {
     let findUser = await User.findOne({ where: { email, password } });
 
     try {
-      if (findUser === null) {
-        res.status(404).send('유저를 찾을 수 없습니다.');
-      } else {
+      if (findUser) {
         req.session.userId = findUser.id;
-	console.log("req.session.userId: ", req.session.userId);
-	console.log("MyHand");
-
-        res.status(200).json({ id: findUser.id, email: findUser.email, name: findUser.name, mobile: findUser.mobile });
+        res.status(200).json({
+          id: findUser.id,
+          email: findUser.email,
+          name: findUser.name,
+          mobile: findUser.mobile,
+        });
+        console.log("req.session.userId: ", req.session.userId);
+      } else {
+        res.status(404).send("유저를 찾을 수 없습니다.");
       }
     } catch (err) {
       res.status(500).send(err);
@@ -73,28 +76,33 @@ module.exports = {
       const userData = await User.findOrCreate({
         where: { name: login },
         defaults: {
-          email: email === null ? `${login}@github.com` : email
-        }
+          email: email === null ? `${login}@github.com` : email,
+        },
       });
 
       if (userData) {
         const [user, created] = userData;
 
         if (created) {
-          res.redirect(`http://http-client.s3-website.ap-northeast-2.amazonaws.com?access=true`);
+          res.redirect(
+            `http://http-client.s3-website.ap-northeast-2.amazonaws.com?access=true`
+          );
         } else {
           User.findOne({
-            where: { email: email }
+            where: { email: email },
           })
-            .then(result => {
-              res.redirect(`http://http-client.s3-website.ap-northeast-2.amazonaws.com?access=true`);
-            }).catch(err => {
-              res.status(404).json(err);
+            .then((result) => {
+              res.redirect(
+                `http://http-client.s3-website.ap-northeast-2.amazonaws.com?access=true`
+              );
             })
+            .catch((err) => {
+              res.status(404).json(err);
+            });
         }
       }
     } catch (err) {
-      res.redirect('/signin');
+      res.redirect("/signin");
     }
-  }
+  },
 };
