@@ -35,11 +35,11 @@ const searchRouter = require("./routes/search");
 app.use("/", indexRouter);
 app.use("/searchinfo", searchRouter);
 
-app.use((req, res) => {
-  if (!req.session.userId) {
-    req.session.userId;
-  }
-});
+// app.use((req, res) => {
+//   if (!req.session.userId) {
+//     req.session.userId;
+//   }
+// });
 
 // get, post
 app.get("/", (req, res) => {
