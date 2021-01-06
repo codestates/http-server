@@ -48,7 +48,7 @@ module.exports = {
         res.sendStatus(500);
       }
     } else {
-      console.log("세션이 암만봐도 안보여....");
+      console.log(req.session);
       res.status(204).send("세션이 안보여....");
     }
   },
