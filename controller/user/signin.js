@@ -46,7 +46,7 @@ module.exports = {
           name: findUser.name,
           mobile: findUser.mobile,
         });
-        console.log("req.session.userId: ", req.session.userId);
+        console.log("signin: ", req.session);
       } else {
         res.status(404).send("유저를 찾을 수 없습니다.");
       }
