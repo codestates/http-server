@@ -4,11 +4,21 @@ const port = 8000;
 const session = require("express-session");
 const cors = require("cors");
 
+app.use((req, res, next) => {
+  if (!req.secure) {
+    res.redirect(`https://api.get-todo.com/${req.url}`);
+  } else {
+    next();
+  }
+});
+
 app.use(
   cors({
     origin: [
       "https://get-todo.com",
       "https://get-todo.com/#/",
+      "http://get-todo.com/",
+      "http://get-todo.com/#/",
       "http://localhost:3000",
       "https://localhost:3000",
     ],
