@@ -22,6 +22,7 @@ app.use(
       sameSite: "none",
       secure: false,
     },
+    name: "basic-session",
   })
 );
 
