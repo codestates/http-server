@@ -1,8 +1,7 @@
-let express = require("express");
-let router = express.Router();
-let { indexController } = require("../controller");
-let cors = require("cors");
-let session = require("express-session");
+const express = require("express");
+const router = express.Router();
+const { indexController } = require("../controller");
+const cors = require("cors");
 
 router.post("/postMain", indexController.main.post);
 router.patch("/editMain", indexController.main.patch);
