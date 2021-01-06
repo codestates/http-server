@@ -10,6 +10,7 @@ app.use(
       "https://get-todo.com",
       "https://get-todo.com/#/",
       "http://localhost:3000",
+      "https://localhost:3000",
     ],
     methods: ["GET", "POST", "PATCH", "OPTIONS"],
     credentials: true,
@@ -52,5 +53,5 @@ app.get("/", (req, res) => {
 
 // 서버 실행
 app.listen(port, () => {
-  console.log(`fin.k.l(c) listening at http://localhost:${port}`);
+  console.log(`fin.k.l(c) listening at https://localhost:${port}`);
 });
