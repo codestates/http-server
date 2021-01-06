@@ -23,7 +23,6 @@ app.use(
     saveUninitialized: true,
     cookie: {
       httpOnly: true,
-      sameSite: "none",
       secure: false,
     },
     name: "basic-session",
