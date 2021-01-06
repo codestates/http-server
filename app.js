@@ -13,15 +13,15 @@ app.use(
 );
 
 app.use(
-  session({ 
+  session({
     secret: "secretkey",
     resave: false,
     saveUninitialized: true,
     cookie: {
       httpOnly: true,
-      sameSite: "none", 
+      sameSite: "none",
       secure: true,
-    }, 
+    },
   })
 );
 
@@ -34,6 +34,12 @@ const searchRouter = require("./routes/search");
 
 app.use("/", indexRouter);
 app.use("/searchinfo", searchRouter);
+
+app.use((req, res) => {
+  if (!req.session.userId) {
+    req.session.userId;
+  }
+});
 
 // get, post
 app.get("/", (req, res) => {
