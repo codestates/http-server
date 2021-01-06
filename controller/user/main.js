@@ -5,9 +5,9 @@ const { Todo, User, Complete, JoinTable } = require("../../models");
 
 module.exports = {
   get: async (req, res) => {
-    if (req.session.userId) {
+    if (req.session.cookie.userId) {
       let todoList = await Todo.findAll({
-        where: { userId: req.session.userId },
+        where: { userId: req.session.cookie.userId },
         attributes: ["id", "content", "startDate", "userId"],
         include: [
           {

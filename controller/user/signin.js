@@ -39,7 +39,7 @@ module.exports = {
 
     try {
       if (findUser) {
-        req.session.userId = findUser.id;
+        req.session.cookie.userId = findUser.id;
         res.status(200).json({
           id: findUser.id,
           email: findUser.email,
