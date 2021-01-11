@@ -3,6 +3,9 @@ const app = express();
 const port = 8000;
 const session = require("express-session");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
+
+app.use(cookieParser());
 
 app.use(
   cors({
