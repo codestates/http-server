@@ -38,6 +38,7 @@ module.exports = {
 
     try {
       if (findUser) {
+        res.header("Access-Control-Allow-Origin", "*");
         req.session.userId = findUser.id;
         res.status(200).json({
           id: findUser.id,
