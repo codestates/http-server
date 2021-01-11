@@ -6,14 +6,15 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: [
-      "https://get-todo.com",
-      "https://get-todo.com/#/",
-      "http://get-todo.com/",
-      "http://get-todo.com/#/",
-      "http://localhost:3000",
-      "https://localhost:3000",
-    ],
+    origin: true,
+    // [
+    //   "https://get-todo.com",
+    //   "https://get-todo.com/#/",
+    //   "http://get-todo.com/",
+    //   "http://get-todo.com/#/",
+    //   "http://localhost:3000",
+    //   "https://localhost:3000",
+    // ],
     methods: ["GET", "POST", "PATCH", "OPTIONS"],
     credentials: true,
   })
