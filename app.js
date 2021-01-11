@@ -9,7 +9,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: true,
+    origin: "*",
     // [
     //   "https://get-todo.com",
     //   "https://get-todo.com/#/",
