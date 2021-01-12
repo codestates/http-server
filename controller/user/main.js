@@ -36,7 +36,7 @@ module.exports = {
       }
 
       console.log("result: ", result);
-      console.log("GetMain...ing");
+      console.log("GetMain_req.session: ", req.session);
 
       try {
         if (!result.length) {

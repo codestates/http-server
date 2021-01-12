@@ -32,8 +32,7 @@ module.exports = {
       });
     }
 
-    console.log("result: ", result);
-    console.log("된거임?");
+    console.log("main2: ", result);
 
     try {
       if (!result.length) {
