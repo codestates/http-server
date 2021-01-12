@@ -42,6 +42,7 @@ module.exports = {
         if (!result.length) {
           res.status(204).send("아직도 시간보낼게 없어?");
         } else {
+          res.set("Access-Control-Allow-Origin", "*");
           res.status(200).json(result);
         }
       } catch (err) {
