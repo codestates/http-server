@@ -14,7 +14,6 @@ router.post("/completed", indexController.completed.post);
 router.patch("/completed", indexController.completed.patch);
 router.post("/important", indexController.important.post);
 router.patch("/important", indexController.important.patch);
-
 router.get("/signout", indexController.signout.get);
 router.post("/remove", indexController.remove.post);
 router.patch("/update", indexController.update.patch);
