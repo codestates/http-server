@@ -5,15 +5,16 @@ const cors = require("cors");
 
 router.post("/postMain", indexController.main.post);
 router.patch("/editMain", indexController.main.patch);
-// router.post("/main2", indexController.main2.post);
-router.get("/getMain", indexController.main.get);
+// router.get("/getMain", indexController.main.get);
+router.post("/getMain", indexController.main2.post);
 router.post("/signup", indexController.signup.post);
 router.get("/getMypage", indexController.mypage.get);
 router.post("/postMypage", indexController.mypage.post);
-router.get("/completed", indexController.completed.get);
+router.post("/completed", indexController.completed.post);
 router.patch("/completed", indexController.completed.patch);
-router.get("/important", indexController.important.get);
+router.post("/important", indexController.important.post);
 router.patch("/important", indexController.important.patch);
+
 router.get("/signout", indexController.signout.get);
 router.post("/remove", indexController.remove.post);
 router.patch("/update", indexController.update.patch);

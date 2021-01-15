@@ -3,8 +3,10 @@ const session = require("express-session");
 
 module.exports = {
   post: async (req, res) => {
+    let { id } = req.body;
+
     let todoList = await Todo.findAll({
-      where: { userId: req.session.userId },
+      where: { userId: id },
       attributes: ["id", "content", "startDate", "userId"],
       include: [
         {
@@ -31,8 +33,6 @@ module.exports = {
         complete: todoList[i].dataValues.Completes[0].dataValues.complete,
       });
     }
-
-    console.log("main2: ", result);
 
     try {
       if (!result.length) {
