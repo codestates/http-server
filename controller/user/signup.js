@@ -6,7 +6,7 @@ module.exports = {
     const { name, password, email, mobile } = req.body;
 
     if (!name || !password || !email || !mobile) {
-      res.status(422).send("다 적어!");
+      res.status(422).send("다 적으세요.");
     }
 
     const userData = await User.findOrCreate({
